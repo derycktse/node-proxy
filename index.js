@@ -14,6 +14,9 @@ http.createServer((req, res) => {
 
     let destUrl = url.parse(pUrl.query.get, true)
 
+    //set cors
+    res.setHeader('Access-Control-Allow-Origin', '*')
+
     let proxyRequest = http.request({
         port: destUrl.port || 80,
         host: destUrl.host,
